@@ -1,5 +1,5 @@
 # 斗地主引擎
-`获取所有可能出牌方式`
+>获取所有可能出牌方式
 
 ## 使用说明
 
@@ -19,6 +19,6 @@
 
     - \*Unix 没试过
 
-- 然后，Windows下在`build/Release`目录下会有一个`r.xxx.pyd`文件，把这个文件复制出去，使它和你代码目录一致，代码直接`import ddz`即可使用。效果如下：
+- 然后，Windows下在`build/Release`目录下会有一个`ddz.xxx.pyd`文件，将该文件所在目录添加至PYTHONPATH，`import ddz`即可导入并使用。效果如下：
 
     ![效果图](https://github.com/skyduy/ddz_moves/blob/master/%E6%95%88%E6%9E%9C.jpg)
