@@ -1,14 +1,14 @@
 #include "pch.h"
-#include "../ddz/m.h"
+#include "../ddz/move.h"
 
 vector<vector<int>> res;
 
-TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
+TEST(getActionsTest, ä¸»åŠ¨_æ‰‹æŒ54å¼ ç‰Œ_ä¸»åŠ¨å‡ºç‰Œ13550ç§)
 {
 	EXPECT_EQ(foo(), 0);
 }
 //
-//TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
+//TEST(getActionsTest, ä¸»åŠ¨_æ‰‹æŒ54å¼ ç‰Œ_ä¸»åŠ¨å‡ºç‰Œ13550ç§)
 //{
 //	vector<int> handcards;
 //	for (int i = 0; i < 13; i++)
@@ -20,7 +20,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 13550);
 //}
 //
-//TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö20ÕÅ´ºÌìÅÆ_Ö÷¶¯³öÅÆ368ÖÖ)
+//TEST(getActionsTest, ä¸»åŠ¨_æ‰‹æŒ20å¼ æ˜¥å¤©ç‰Œ_ä¸»åŠ¨å‡ºç‰Œ368ç§)
 //{
 //	vector<int> handcards = { 0, 0, 0, 0, 0, 1, 1, 3, 3, 3, 3, 3, 1, 1, 1 };
 //	vector<int> none;
@@ -28,7 +28,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 368);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_Òª²»Æğ)
+//TEST(getActionsTest, è¢«åŠ¨_è¦ä¸èµ·)
 //{
 //	vector<int> handcards = { 0, 2, 1, 2, 1, 1, 1, 1, 1, 3, 0, 2, 3, 1, 0 };
 //	vector<int> lastcards = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0 };
@@ -36,7 +36,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 1);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_¶Ô·½ºËµ¯_Òª²»Æğ)
+//TEST(getActionsTest, è¢«åŠ¨_å¯¹æ–¹æ ¸å¼¹_è¦ä¸èµ·)
 //{
 //	vector<int> handcards = { 0, 2, 1, 2, 1, 1, 1, 1, 1, 3, 0, 2, 3, 1, 0 };
 //	vector<int> lastcards = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1 };
@@ -44,7 +44,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 1);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_ÎÒ·½ºËµ¯_Õ¨Ëû)
+//TEST(getActionsTest, è¢«åŠ¨_æˆ‘æ–¹æ ¸å¼¹_ç‚¸ä»–)
 //{
 //	vector<int> handcards = { 1, 1, 1, 2, 1, 1, 1, 1, 1, 3, 0, 2, 3, 1, 1 };
 //	vector<int> lastcards = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0 };
@@ -54,7 +54,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res[1], ans);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_Õ¨µ¯Õ¨Ëû)
+//TEST(getActionsTest, è¢«åŠ¨_ç‚¸å¼¹ç‚¸ä»–)
 //{
 //	vector<int> handcards = { 0, 4, 1, 2, 1, 1, 1, 1, 1, 3, 0, 2, 3, 1, 0 };
 //	vector<int> lastcards = { 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 };
@@ -63,7 +63,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res[1], ans);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_Õ¨µ¯±»Ñ¹_Òª²»Æğ)
+//TEST(getActionsTest, è¢«åŠ¨_ç‚¸å¼¹è¢«å‹_è¦ä¸èµ·)
 //{
 //	vector<int> handcards = { 1, 1, 1, 2, 1, 1, 1, 1, 1, 3, 0, 4, 0, 0, 0 };
 //	vector<int> lastcards = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0 };
@@ -71,7 +71,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 1);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_µ¥ÕÅ_Ñ¹Ëû)
+//TEST(getActionsTest, è¢«åŠ¨_å•å¼ _å‹ä»–)
 //{
 //	vector<int> handcards = { 0, 2, 1, 2, 1, 1, 1, 1, 1, 3, 0, 2, 3, 1, 0 };
 //	vector<int> lastcards = { 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -79,7 +79,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 11 + 1);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_Á½ÕÅ_Ñ¹ËÀ)
+//TEST(getActionsTest, è¢«åŠ¨_ä¸¤å¼ _å‹æ­»)
 //{
 //	vector<int> handcards = { 0, 2, 1, 2, 1, 1, 1, 1, 1, 3, 0, 2, 3, 1, 0 };
 //	vector<int> lastcards = { 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -87,7 +87,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 5 + 1);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_ÈıÕÅ_´óÄã)
+//TEST(getActionsTest, è¢«åŠ¨_ä¸‰å¼ _å¤§ä½ )
 //{
 //	vector<int> handcards = { 0, 2, 1, 2, 1, 1, 1, 1, 1, 3, 0, 2, 3, 1, 0 };
 //	vector<int> lastcards = { 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -95,7 +95,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 2 + 1);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_Õ¨µ¯Ñ¹Õ¨µ¯)
+//TEST(getActionsTest, è¢«åŠ¨_ç‚¸å¼¹å‹ç‚¸å¼¹)
 //{
 //	vector<int> handcards = { 0, 2, 1, 2, 1, 1, 1, 0, 1, 1, 0, 4, 1, 0, 0 };
 //	vector<int> lastcards = { 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -103,7 +103,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 1 + 1);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_Èı´øÒ»_Ñ¹ËÀ)
+//TEST(getActionsTest, è¢«åŠ¨_ä¸‰å¸¦ä¸€_å‹æ­»)
 //{
 //	vector<int> handcards = { 0, 2, 1, 2, 1, 1, 1, 0, 1, 1, 0, 3, 1, 0, 0 };
 //	vector<int> lastcards = { 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -111,7 +111,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 9 + 1);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_Èı´ø¶ş_Ñ¹ËÀ)
+//TEST(getActionsTest, è¢«åŠ¨_ä¸‰å¸¦äºŒ_å‹æ­»)
 //{
 //	vector<int> handcards = { 0, 2, 1, 2, 1, 1, 1, 0, 1, 1, 0, 3, 1, 0, 0 };
 //	vector<int> lastcards = { 0, 0, 0, 0, 0, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -119,7 +119,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 2 + 1);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_Ë³×Ó_¹ÜÉÏ)
+//TEST(getActionsTest, è¢«åŠ¨_é¡ºå­_ç®¡ä¸Š)
 //{
 //	vector<int> handcards = { 0, 2, 1, 2, 1, 1, 0, 1, 1, 1, 1, 3, 1, 0, 0 };
 //	vector<int> lastcards = { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -127,7 +127,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 2 + 1);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_Á¬Ë³_´óÄã)
+//TEST(getActionsTest, è¢«åŠ¨_è¿é¡º_å¤§ä½ )
 //{
 //	vector<int> handcards = { 0, 2, 1, 2, 2, 2, 2, 0, 1, 1, 0, 0, 1, 0, 0 };
 //	vector<int> lastcards = { 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -135,7 +135,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 2 + 1);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_Í¹³á·É»ú_Ñ¹ËÀ)
+//TEST(getActionsTest, è¢«åŠ¨_å‡¸ç¿…é£æœº_å‹æ­»)
 //{
 //	vector<int> handcards = { 0, 3, 3, 3, 3, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0 };
 //	vector<int> lastcards = { 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -143,7 +143,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 3 + 1);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_ËÄ´øÁ©µ¥ÕÅ_Ñ¹ËÀ)
+//TEST(getActionsTest, è¢«åŠ¨_å››å¸¦ä¿©å•å¼ _å‹æ­»)
 //{
 //	vector<int> handcards = { 0, 2, 1, 2, 2, 2, 4, 0, 1, 1, 0, 0, 1, 0, 0 };
 //	vector<int> lastcards = { 0, 1, 1, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -151,7 +151,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 1 + 1 + 28);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_ËÄ´øÁ©2)
+//TEST(getActionsTest, è¢«åŠ¨_å››å¸¦ä¿©2)
 //{
 //	vector<int> handcards = { 0, 2, 1, 2, 2, 2, 2, 0, 1, 4, 0, 0, 1, 0, 0 };
 //	vector<int> lastcards = { 0, 2, 2, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -159,7 +159,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 1 + 1 + 10);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_µ¥³á·É»ú_Ñ¹ËÀ)
+//TEST(getActionsTest, è¢«åŠ¨_å•ç¿…é£æœº_å‹æ­»)
 //{
 //	vector<int> handcards = { 0, 2, 1, 3, 3, 3, 3, 0, 1, 1, 0, 0, 1, 0, 0 };
 //	vector<int> lastcards = { 0, 1, 3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -167,7 +167,7 @@ TEST(getActionsTest, Ö÷¶¯_ÊÖ³Ö54ÕÅÅÆ_Ö÷¶¯³öÅÆ13550ÖÖ)
 //	EXPECT_EQ(res.size(), 1 + 20 + 20);
 //}
 //
-//TEST(getActionsTest, ±»¶¯_Ë«³á·É»ú_¹ÜÉÏ)
+//TEST(getActionsTest, è¢«åŠ¨_åŒç¿…é£æœº_ç®¡ä¸Š)
 //{
 //	vector<int> lastcards = { 0, 2, 3, 3, 3, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0 };
 //	vector<int> handcards = { 0, 2, 1, 3, 3, 3, 3, 0, 1, 2, 0, 0, 1, 0, 0 };
