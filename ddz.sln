@@ -7,6 +7,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ddz", "ddz\ddz.pyproj", "{9
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cext", "cext\cext.vcxproj", "{4F5F0036-7DD4-4C27-90B9-BB31D6A90F13}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cextText", "cextText\cextText.vcxproj", "{601FEA6D-6045-457F-9107-AC300D7B7FEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,16 @@ Global
 		{4F5F0036-7DD4-4C27-90B9-BB31D6A90F13}.Release|x64.Build.0 = Release|x64
 		{4F5F0036-7DD4-4C27-90B9-BB31D6A90F13}.Release|x86.ActiveCfg = Release|Win32
 		{4F5F0036-7DD4-4C27-90B9-BB31D6A90F13}.Release|x86.Build.0 = Release|Win32
+		{601FEA6D-6045-457F-9107-AC300D7B7FEA}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{601FEA6D-6045-457F-9107-AC300D7B7FEA}.Debug|x64.ActiveCfg = Debug|x64
+		{601FEA6D-6045-457F-9107-AC300D7B7FEA}.Debug|x64.Build.0 = Debug|x64
+		{601FEA6D-6045-457F-9107-AC300D7B7FEA}.Debug|x86.ActiveCfg = Debug|Win32
+		{601FEA6D-6045-457F-9107-AC300D7B7FEA}.Debug|x86.Build.0 = Debug|Win32
+		{601FEA6D-6045-457F-9107-AC300D7B7FEA}.Release|Any CPU.ActiveCfg = Release|Win32
+		{601FEA6D-6045-457F-9107-AC300D7B7FEA}.Release|x64.ActiveCfg = Release|x64
+		{601FEA6D-6045-457F-9107-AC300D7B7FEA}.Release|x64.Build.0 = Release|x64
+		{601FEA6D-6045-457F-9107-AC300D7B7FEA}.Release|x86.ActiveCfg = Release|Win32
+		{601FEA6D-6045-457F-9107-AC300D7B7FEA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,6 +21,11 @@ vector<vector<int>> combine(int n, int k)
 	return result;
 }
 
+int foo()
+{
+	return 0;
+}
+
 vector<vector<int>> getActions(vector<int>& handcards, vector<int>& last)
 {
 	vector<vector<int>> res;
