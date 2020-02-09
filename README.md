@@ -1,3 +1,0 @@
-# ddz
-
-unfinished: test module
