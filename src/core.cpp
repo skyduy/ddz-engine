@@ -1,34 +1,35 @@
 #include "core.h"
 
-inline void reset(vector<int>& v) {
+inline void reset(vector<uint16_t>& v) {
     std::fill(v.begin(), v.end(), 0);
 }
 
-void combine(const vector<int>& options, int k, vector<vector<int>>& candidates) {
-    int n = options.size();
+// select k-combination from options to candidates
+void combine(const CardList& options, size_t k, vector<CardList>& candidates) {
+    size_t n = options.size();
     int i = 0;
-    vector<int> candidate(k, 0);
-    vector<int> p(k, 0);
+    CardList candidate(k, 0);
+    vector<size_t> index(k, 0);
     while (i >= 0) {
-        p[i]++;
-        if (p[i] > n) {
+        index[i]++;
+        if (index[i] > n) {
             --i;
         } else if (i == k - 1) {
             reset(candidate);
             for (int j = 0; j < k; j++) {
-                candidate[j] = options[p[j] - 1];
+                candidate[j] = options[index[j] - 1];
             }
             candidates.push_back(candidate);
         } else {
             ++i;
-            p[i] = p[i - 1];
+            index[i] = index[size_t(i) - 1];
         }
     }
 }
 
-vector<vector<int>> getActions(vector<int>& handcards, vector<int>& last) {
-    vector<vector<int>> res;
-    vector<int> choice(15, 0);
+vector<CardVector> getActions(CardVector& handcards, CardVector& last) {
+    vector<CardVector> res;
+    CardVector choice(15, 0);
     int totalCard = 0; // 手里的牌数目
     for (int num : last) totalCard += num;
     if (totalCard == 0) {
@@ -48,17 +49,17 @@ vector<vector<int>> getActions(vector<int>& handcards, vector<int>& last) {
                 res.push_back(choice);
                 if (j == 4) {                            // 四带2单，2双
                     for (int num = 1; num <= 2; num++) { // 单双翅
-                        vector<int> container;
+                        CardList container;
                         for (int k = 0; k < 15; k++) {
                             if (k != i && handcards[k] >= num) {
                                 container.push_back(k);
                             }
                         }
                         if (container.size() < 2) break;
-                        vector<vector<int>> candidates;
+                        vector<CardList> candidates;
                         combine(container, 2, candidates);
-                        for (vector<int> candidate : candidates) {
-                            vector<int> backup(choice);
+                        for (CardList candidate : candidates) {
+                            CardVector backup(choice);
                             for (int c : candidate) {
                                 backup[c] = num;
                             }
@@ -105,17 +106,17 @@ vector<vector<int>> getActions(vector<int>& handcards, vector<int>& last) {
                             if (t == 2) {                               // 飞机可以带1, 2翅膀
                                 for (int wing = 1; wing <= 2; wing++) { // 单双翅
                                     if ((t + 1) * len + wing * len <= 20) {
-                                        vector<int> container;
+                                        CardList container;
                                         for (int i = 0; i < 15; i++) {
                                             if (choice[i] == 0 && handcards[i] >= wing) {
                                                 container.push_back(i);
                                             }
                                         }
                                         if (int(container.size()) < len) break;
-                                        vector<vector<int>> candidates;
+                                        vector<CardList> candidates;
                                         combine(container, len, candidates);
-                                        for (vector<int> candidate : candidates) {
-                                            vector<int> backup(choice);
+                                        for (CardList candidate : candidates) {
+                                            CardVector backup(choice);
                                             for (int c : candidate) {
                                                 backup[c] = wing;
                                             }
@@ -150,7 +151,7 @@ vector<vector<int>> getActions(vector<int>& handcards, vector<int>& last) {
             }
         }
         // 让一步，要不起
-        vector<int> none(15, 0);
+        CardVector none(15, 0);
         res.push_back(none);
         // --------------碾压规则------------------
         // 核弹碾压一切
@@ -242,17 +243,17 @@ vector<vector<int>> getActions(vector<int>& handcards, vector<int>& last) {
                     reset(choice);
                     choice[i] = 4;
 
-                    vector<int> container;
+                    CardList container;
                     for (int k = 0; k < 15; k++) {
                         if (k != i && handcards[k] >= kicker) {
                             container.push_back(k);
                         }
                     }
                     if (container.size() < 2) continue;
-                    vector<vector<int>> candidates;
+                    vector<CardList> candidates;
                     combine(container, 2, candidates);
-                    for (vector<int> candidate : candidates) {
-                        vector<int> backup(choice);
+                    for (CardList candidate : candidates) {
+                        CardVector backup(choice);
                         for (int c : candidate) {
                             backup[c] = kicker;
                         }
@@ -265,7 +266,7 @@ vector<vector<int>> getActions(vector<int>& handcards, vector<int>& last) {
         // 飞机带一、二翅
         for (int wing = 1; wing <= 2; wing++) {
             if (maxCountCard.size() >= 2 && maxCount == 3 &&
-                totalCard == (3 + wing) * maxCountCard.size() &&
+                totalCard == (3 + size_t(wing)) * maxCountCard.size() &&
                 diffCard == 2 * maxCountCard.size()) {
                 int len = diffCard / 2;
                 int start = maxCountCard[0];
@@ -279,17 +280,17 @@ vector<vector<int>> getActions(vector<int>& handcards, vector<int>& last) {
                             for (int j = i; j < i + len; j++) {
                                 choice[j] = 3;
                             }
-                            vector<int> container;
+                            CardList container;
                             for (int i = 0; i < 15; i++) {
                                 if (choice[i] == 0 && handcards[i] >= wing) {
                                     container.push_back(i);
                                 }
                             }
                             if (container.size() < 2) continue;
-                            vector<vector<int>> candidates;
+                            vector<CardList> candidates;
                             combine(container, len, candidates);
-                            for (vector<int> candidate : candidates) {
-                                vector<int> backup(choice);
+                            for (CardList candidate : candidates) {
+                                CardVector backup(choice);
                                 for (int c : candidate) {
                                     backup[c] = wing;
                                 }
