@@ -1,11 +1,5 @@
-# CMake
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.5)
 
-# Project
-project(ddz VERSION 1.0)
+project(ddz)
 
-# ------------
-add_subdirectory(src)
-
-enable_testing()
-add_subdirectory(tests)
+add_subdirectory(card)

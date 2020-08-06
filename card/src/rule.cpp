@@ -1,15 +1,15 @@
-#include "core.h"
+#include <card/rule.h>
 
-inline void reset(vector<uint16_t>& v) {
+inline void reset(std::vector<uint16_t>& v) {
     std::fill(v.begin(), v.end(), 0);
 }
 
 // select k-combination from options to candidates
-void combine(const CardList& options, size_t k, vector<CardList>& candidates) {
+void combine(const CardList& options, size_t k, std::vector<CardList>& candidates) {
     size_t n = options.size();
     int i = 0;
     CardList candidate(k, 0);
-    vector<size_t> index(k, 0);
+    std::vector<size_t> index(k, 0);
     while (i >= 0) {
         index[i]++;
         if (index[i] > n) {
@@ -27,13 +27,13 @@ void combine(const CardList& options, size_t k, vector<CardList>& candidates) {
     }
 }
 
-vector<CardVector> getActions(CardVector& handcards, CardVector& last) {
-    vector<CardVector> res;
+std::vector<CardVector> getActions(CardVector& handcards, CardVector& last) {
+    std::vector<CardVector> res;
     CardVector choice(15, 0);
     int totalCard = 0; // 手里的牌数目
     for (int num : last) totalCard += num;
     if (totalCard == 0) {
-        vector<int> lenDict = {5, 3, 2};
+        std::vector<int> lenDict = {5, 3, 2};
         // 核弹
         if (handcards[13] && handcards[14]) {
             reset(choice);
@@ -56,7 +56,7 @@ vector<CardVector> getActions(CardVector& handcards, CardVector& last) {
                             }
                         }
                         if (container.size() < 2) break;
-                        vector<CardList> candidates;
+                        std::vector<CardList> candidates;
                         combine(container, 2, candidates);
                         for (CardList candidate : candidates) {
                             CardVector backup(choice);
@@ -113,7 +113,7 @@ vector<CardVector> getActions(CardVector& handcards, CardVector& last) {
                                             }
                                         }
                                         if (int(container.size()) < len) break;
-                                        vector<CardList> candidates;
+                                        std::vector<CardList> candidates;
                                         combine(container, len, candidates);
                                         for (CardList candidate : candidates) {
                                             CardVector backup(choice);
@@ -134,10 +134,10 @@ vector<CardVector> getActions(CardVector& handcards, CardVector& last) {
         }
     } else {
         // 全局数据
-        int diffCard = 0;         // 手里不同种类的牌数
-        int maxCard = 0;          // 手里的最大的牌: 0, 1, ... 14
-        int maxCount = 0;         // 手里最多的牌，他有多少个
-        vector<int> maxCountCard; // 手里最多的牌形成的数组
+        int diffCard = 0;              // 手里不同种类的牌数
+        int maxCard = 0;               // 手里的最大的牌: 0, 1, ... 14
+        int maxCount = 0;              // 手里最多的牌，他有多少个
+        std::vector<int> maxCountCard; // 手里最多的牌形成的数组
         for (int i = 0; i < 15; i++) {
             if (last[i] != 0) {
                 maxCard = i;
@@ -250,7 +250,7 @@ vector<CardVector> getActions(CardVector& handcards, CardVector& last) {
                         }
                     }
                     if (container.size() < 2) continue;
-                    vector<CardList> candidates;
+                    std::vector<CardList> candidates;
                     combine(container, 2, candidates);
                     for (CardList candidate : candidates) {
                         CardVector backup(choice);
@@ -287,7 +287,7 @@ vector<CardVector> getActions(CardVector& handcards, CardVector& last) {
                                 }
                             }
                             if (container.size() < 2) continue;
-                            vector<CardList> candidates;
+                            std::vector<CardList> candidates;
                             combine(container, len, candidates);
                             for (CardList candidate : candidates) {
                                 CardVector backup(choice);
