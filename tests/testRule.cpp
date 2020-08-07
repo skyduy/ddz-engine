@@ -1,14 +1,14 @@
 #include <gtest/gtest.h>
 
-#include "core.h"
+#include "card/rule.h"
 
-vector<CardVector> res;
+std::vector<CardVector> res;
 
 TEST(combineTest, isOK) {
     CardList options{3, 4, 5, 6};
-    vector<CardList> res;
+    std::vector<CardList> res;
     combine(options, 2, res);
-    vector<CardList> ans{{3, 4}, {3, 5}, {3, 6}, {4, 5}, {4, 6}, {5, 6}};
+    std::vector<CardList> ans{{3, 4}, {3, 5}, {3, 6}, {4, 5}, {4, 6}, {5, 6}};
     EXPECT_EQ(res, ans);
 }
 

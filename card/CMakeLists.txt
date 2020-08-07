@@ -1,9 +1,8 @@
-project(card)
-
 # library
-add_library(${PROJECT_NAME} STATIC src/rule.cpp)
-add_library(ddz::card ALIAS ${PROJECT_NAME})
-target_include_directories( ${PROJECT_NAME} PUBLIC include)
+add_library(card STATIC src/rule.cpp)
+target_include_directories(card PUBLIC include)
+
+add_library(ddz::card ALIAS card)
 
 # exec demo
 add_executable(demo demo_main.cpp)
