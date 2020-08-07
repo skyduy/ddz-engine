@@ -1,6 +1,6 @@
 find_package(GTest CONFIG REQUIRED)
 
-add_executable(testRule testRule.cpp)
-target_link_libraries(testRule GTest::gtest_main ddz::card)
+add_executable(rule_test "rule_test.cpp")
+target_link_libraries(rule_test GTest::gtest_main ddz::rule)
 
-add_test(test_all testRule)
+add_test(test_all rule_test)

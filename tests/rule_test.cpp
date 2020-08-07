@@ -1,6 +1,6 @@
-#include <gtest/gtest.h>
+#include "rule/rule.h"
 
-#include "card/rule.h"
+#include <gtest/gtest.h>
 
 std::vector<CardVector> res;
 

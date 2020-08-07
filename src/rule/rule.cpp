@@ -1,4 +1,4 @@
-#include <card/rule.h>
+#include "rule/rule.h"
 
 inline void reset(std::vector<uint16_t>& v) {
     std::fill(v.begin(), v.end(), 0);
