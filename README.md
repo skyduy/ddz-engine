@@ -2,4 +2,4 @@
 
 利用 pybind11 提供 python 接口。
 
-使用方法可参考 sample/demo.py 和 tests/rule_test.cpp。
+使用方法可参考 samples/demo.py 和 tests/rule_test.cpp。
