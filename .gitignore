@@ -365,3 +365,5 @@ out/*
 .idea
 CMakeSettings.json
 !out/ddz.pyd
+build/
+.vscode/
