@@ -12,7 +12,7 @@ void combine(const CardList& options, size_t k, std::vector<CardList>& candidate
     std::vector<size_t> index(k, 0);
     while (i >= 0) {
         index[i]++;
-        if (index[i] > n) {
+        if (index[i] + k - i - 1 > n) {
             --i;
         } else if (i == k - 1) {
             reset(candidate);
